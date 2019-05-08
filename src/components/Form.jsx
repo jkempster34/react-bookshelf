@@ -6,12 +6,21 @@ class Form extends React.Component {
   };
   render() {
     return (
-      <form onSubmit={this.returnEmoji}>
+      <form onSubmit={this.returnBook}>
         <input type="text" onChange={this.storeInput} />
         <button>Search</button>
       </form>
     );
   }
+
+  returnBook = event => {
+    event.preventDefault();
+    this.props.changeSearchTerm(this.state.userInput);
+  };
+
+  storeInput = event => {
+    this.setState({ userInput: event.target.value });
+  };
 }
 
 export default Form;
